@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapstoneProject</title>
+    <link rel="stylesheet" href="./download.jpg">
+    <style>
+ body {
+    background-image: url('/download.jpg');
+    background-size: cover;
+    background-position: center;
+ }      
+ 
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+     <div class="title">Registration Form</div>
+     </div>
+     <br></br>  
+     <form name="myfrom" method="post" onsubmit="validate();"action="login.html">
+       </form>
+       <div class="user_details">
+        <div class="input_box">
+        <span class="details">firstname:</span>    
+        <input type="text" id="name" placeholder="Enter your name" required>
+  </div>
+  <br></br>  
+          <div class="input_box">
+            <span class="detailes">secondname:</span>
+            <input type="text" name="username" id="username"placeholder="Enter your username" required>  
+        </div>
+        <br></br>  
+        <div class="input_box">
+            <span class="details">Email:</span>
+            <input type="email" name="Email_Id" id="Email" placeholder="Enter your email" required>
+        </div>
+        <br></br>  
+        <div class="input_box">
+            <span class="details">Phone Number:</span>
+            <input type="tel" id="number" placeholder="10 numbers" maxlength="10"pattern="[0-9]" required>
+        </div>
+        <br></br>  
+        <div class="input_box">
+            <span class="detailes">password:</span>
+            <input type="password" name="password" id="password" pattern="[a-z,A-Z,0-9]{8,16}" 
+            title="password should consist of combinationof upper & lower case letters and numerical(min & max range :8-16)"
+            placeholder="Enter password"required>
+        </div>
+      </div>
+        </div>
+    </div>
+    <br></br>        
+    <div class="input_box">
+                <span class="detailes">Confirmpassword:</span>
+                <input type="password" name="confirmpassword" id="confirmpassword" pattern="[a-z,A-Z,0-9]{8,16}"
+                title="password should consist of combination of upper & lower case letters and numerical(min & max range :8-16)"
+                placeholder="Enter password" required>
+                <span id="message"></span>
+            </div>
+        </div>
+        <div class="gender_detailes">
+            <b>
+                <p>Gender:</p>
+                <input type="radio" name="Gender" id="male">Male
+                <input type="radio" name="Gender" id="female">Female
+                <input type="radio" name="Gender" id="others">prefare not to say
+            </b>
+        </div>
+        <div class="button" id="btn">
+            <input type="submit" id="submit" value="Register" />
+        </div>
+        </form>
+    </div>
+    <script src="./download.jpg">
+        function validate(){
+            var email = document.forms["myform"][Email_id].value;
+            if (email =="") {
+                alert("Enter the email");
+                return failse;
+            }
+            var at = email.indexOf("@");
+            var dot = email.lastIndexof(".");
+            if (at < 1 || dot < at + 2 ||dot + 2 >= email.length) {
+                alert("Invalid Email_Id");
+                return false;
+            }
+            let password = document.getElementById("password").value;
+            let confirmpassword = document.getElementById("confirmpassword").value;
+            console.log(password, confirmpassword);
+            let message = document.getElementById("message");
+            if (password.length != 0) {
+                if (password == confirmpassword) {
+                    message.textcontent = "password don't match";
+                }else{
+                    message.textcontent = "password don't match";
+                }
+            }
+            alert("you are successfully registered to the organ donation!");
+        }
+    </script>
+</body>
+</html>
